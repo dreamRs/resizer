@@ -4,7 +4,7 @@ dependencies:
     src: htmlwidgets/libs/iframe-resizer
     script: iframeResizer.min.js
   - name: ionrangeslider
-    version: 2.2.0
+    version: 2.3.0
     src: htmlwidgets/libs/ionrangeslider
     script: js/ion.rangeSlider.min.js
-    stylesheet: [css/ion.rangeSlider.css, css/ion.rangeSlider.skinShiny.css]
+    stylesheet: css/ion.rangeSlider.min.css

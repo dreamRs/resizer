@@ -31,6 +31,7 @@ HTMLWidgets.widget({
 
           // Initialize sliders
            $('#iframe_width').ionRangeSlider({
+             skin: "round",
              onChange: function(data) {
                //$('#' + el.id).width(data.from + 10);
                $('.container').width(data.from + 0);
@@ -38,6 +39,7 @@ HTMLWidgets.widget({
              }
            });
            $('#iframe_height').ionRangeSlider({
+             skin: "round",
              onChange: function(data) {
                //$('#' + el.id).width(data.from + 10);
                $('.container').height(data.from + 0);
