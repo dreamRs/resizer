@@ -6,7 +6,7 @@
 #'  resolutions to verify that the display is correct.
 #'
 #' @param appDir The application to run, same as in \code{\link[shiny]{runApp}}.
-#' @param urls A vector with URLs to test.
+#' @param urls A vector with URLs to simulate resolution.
 #' @param width Original width for the iframe containing the application.
 #' @param height Original height for the iframe containing the application.
 #' @param controls Display controls widgets to manipulate width/height, URL. Default to \code{TRUE}.
@@ -19,6 +19,30 @@
 #' @importFrom shiny runApp
 #'
 #' @export
+#' 
+#' @examples 
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(resizer)
+#'   
+#'   # From app directory :
+#'   emulate_resolution(
+#'     system.file("examples", "01_hello", package = "shiny")
+#'   )
+#'   
+#'   
+#'   # From shiny obj
+#'   ui <- fluidPage(
+#'     tags$h1("My application")
+#'   )
+#'   server <- function(input, output, session) {
+#'     
+#'   }
+#'   
+#'   emulate_resolution(
+#'     shinyApp(ui, server)
+#'   )
+#' }
 emulate_resolution <- function(appDir = NULL, urls = NULL,
                                width = 800, height = 600,
                                controls = TRUE,
@@ -27,7 +51,6 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
 
   if (!is.null(urls) && !is.list(urls)) {
     urls <- setNames(as.list(urls), urls)
-    urls <- c(list("None" = "none"), urls)
   }
 
   if (!is.null(appDir)) {
