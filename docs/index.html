@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<link href="index_files/font-awesome-5.3.1/css/all.min.css" rel="stylesheet" />
+<link href="index_files/font-awesome-5.3.1/css/v4-shims.min.css" rel="stylesheet" />
+<script src="index_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="index_files/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="index_files/iframe-resizer-3.6.1/iframeResizer.min.js"></script>
+<link href="index_files/ionrangeslider-2.3.0/css/ion.rangeSlider.min.css" rel="stylesheet" />
+<script src="index_files/ionrangeslider-2.3.0/js/ion.rangeSlider.min.js"></script>
+<script src="index_files/resizer-binding-0.0.1.900/resizer.js"></script>
+  <title>resizer</title>
+  <style>.btn-addon{font-size:14.5px;margin:0 0 0 0 !important;display: inline-block !important;}</style>
+</head>
+<body>
+<div id="htmlwidget_container">
+  <div>
+    <div>
+      <div style="max-width: 800px; margin: auto;">
+        <h4>
+          <b>Shiny screen simulator</b>
+        </h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group shiny-input-container">
+              <label for="screen_url">Enter an URL:</label>
+              <div id="screen_url" data-reset="TRUE" data-reset-value="" class="input-group search-text">
+                <input id="screen_url_text" style="border-radius: 0.25em 0 0 0.25em !important;" type="text" class="form-control" value=""/>
+                <div class="input-group-btn">
+                  <button class="btn btn-default btn-addon action-button" id="screen_url_reset" type="button">
+                    <i class="fa fa-remove"></i>
+                  </button>
+                  <button class="btn btn-default btn-addon action-button" id="screen_url_search" type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="list_urls">URLs:</label>
+              <div>
+                <select id="list_urls" class="form-control"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="iframe_width">Width:</label>
+              <input class="js-range-slider" id="iframe_width" data-min="100" data-max="1600" data-from="800" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-postfix="px" data-keyboard="true" data-data-type="number"/>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="iframe_height">Height:</label>
+              <input class="js-range-slider" id="iframe_height" data-min="100" data-max="1200" data-from="600" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-postfix="px" data-keyboard="true" data-data-type="number"/>
+            </div>
+          </div>
+        </div>
+        <span>Shortcuts:</span>
+        <a id="width800_height600" href="#" class="action-button">800x600</a>
+        <a id="width1024_height768" href="#" class="action-button">1024x768</a>
+        <button class="btn btn-default action-button btn-xs pull-right" id="refresh" type="button">
+          <i class="fa fa-refresh"></i>
+          refresh
+        </button>
+      </div>
+      <br/>
+      <div class="container" style="max-width: 800px; margin: auto; padding: 0;">
+        <iframe id="htmlwidget-e12d129fa66b358357a5" class="resizer html-widget" style="border: 5px inset steelblue;" src="http://127.0.0.1"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/json" data-for="htmlwidget-e12d129fa66b358357a5">{"x":{"url_app":null,"urls":{"http://shinyapps.dreamrs.fr/":"http://shinyapps.dreamrs.fr/"},"width":800,"height":600,"controls":true},"evals":[],"jsHooks":[]}</script>
+<script type="application/htmlwidget-sizing" data-for="htmlwidget-e12d129fa66b358357a5">{"viewer":{"width":"100%","height":"100%","padding":0,"fill":true},"browser":{"width":"100%","height":"100%","padding":0,"fill":false}}</script>
+</body>
+</html>
