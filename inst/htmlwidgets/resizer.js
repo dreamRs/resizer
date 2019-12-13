@@ -23,8 +23,10 @@ HTMLWidgets.widget({
           if (x.urls === null) {
             $("#list_urls").attr("disabled", true);
           } else {
+            iframeSrc = x.urls[Object.keys(x.urls)[0]];
+            $('#' + el.id).attr('src', iframeSrc);
             var $el = $("#list_urls");
-            $el.empty(); // remove old options
+            $el.empty(); 
             $.each(x.urls, function(key, value) {
               $el.append(
                 $("<option></option>")
