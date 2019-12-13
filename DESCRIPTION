@@ -1,0 +1,20 @@
+Package: shinyscreen
+Title: Simulate Screen Resolution for Shiny Application
+Version: 0.0.1
+Authors@R: c(
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
+  person("Fanny", "Meyer", role = "aut"),
+  person("David", "J. Bradshaw", role = c("cph"), comment = "iframe-resizer library"))
+Description: When developing applications, the display may be different depending on 
+  the screen on which the application is displayed. This application allows you to simulate
+  different resolutions to verify that the display is correct.
+License: GPL-3 | file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    htmlwidgets,
+    htmltools,
+    shiny,
+    shinyWidgets,
+    rmarkdown
+RoxygenNote: 7.0.2

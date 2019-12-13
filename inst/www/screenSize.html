@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Screen size</title>
+  <meta name="description" content="Get screen size">
+  <style>
+    .container {
+      max-width: 500px;
+      margin: auto;
+    }
+    .value {
+      font-weight: bold;
+      font-size: 170%;
+    }
+    .info {
+      font-size: 150%;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class = "container">
+    <h1>Screen size</h1>
+    <div class = "info">Screen resolution: <span id = "res" class = "value"></span></div>
+    <div class = "info">Available screen width: <span id = "screen_width" class = "value"></span></div>
+    <div class = "info">Browser width: <span id = "browser_width" class = "value"></span></div>
+    <div class = "info">Available screen height: <span id = "screen_height" class = "value"></span></div>
+    <div class = "info">Browser height: <span id = "browser_height" class = "value"></span></div>
+    <div class = "info">Pixel ratio: <span id = "pixelratio" class = "value"></span></div>
+  </div>
+
+  <script>
+    document.getElementById("res").innerHTML = window.screen.width + "x" + window.screen.height;
+    document.getElementById("screen_width").innerHTML = window.screen.availWidth;
+    var w = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+    document.getElementById("browser_width").innerHTML = w;
+    document.getElementById("screen_height").innerHTML = window.screen.availHeight;
+    var h = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+    document.getElementById("browser_height").innerHTML = h;
+    document.getElementById("pixelratio").innerHTML = window.devicePixelRatio;
+  </script>
+
+</body>
+</html>

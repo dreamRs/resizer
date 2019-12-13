@@ -1,0 +1,14 @@
+dependencies:
+  - name: iframe-resizer
+    version: 3.6.1
+    src: htmlwidgets/libs/iframe-resizer
+    script: iframeResizer.min.js
+  - name: ionrangeslider
+    version: 2.2.0
+    src: htmlwidgets/libs/ionrangeslider
+    script: js/ion.rangeSlider.min.js
+    stylesheet: [css/ion.rangeSlider.css, css/ion.rangeSlider.skinShiny.css]
+#  - name: particles
+#    version: 0.1.0
+#    src: htmlwidgets/libs/
+#    script: boostrap-modal-inside-iframe.js
