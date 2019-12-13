@@ -10,7 +10,7 @@ screen_size()
 Open a browser to get screen resolution
 }
 \examples{
-\dontrun{
+if (interactive()) {
 
 screen_size()
 

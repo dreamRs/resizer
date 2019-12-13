@@ -5,10 +5,22 @@ HTMLWidgets.widget({
   type: 'output',
 
   factory: function(el, width, height) {
+    
+    var iframeSrc;
 
     return {
 
       renderValue: function(x) {
+        
+        // iframe resizer init
+        var iframe = $('#' + el.id).iFrameResize({
+          minHeight: 600, 
+          minWidth: 0,
+          scrolling: true,
+          widthCalculationMethod: "min",
+          checkOrigin: false,
+          autoResize: false
+        });
 
         if (x.controls) {
           // Disable select if no urls or update choices
@@ -25,7 +37,7 @@ HTMLWidgets.widget({
 
           // select url
           $('#list_urls').on('change', function() {
-            $('#sescreen_url' ).val(this.value);
+            $('#screen_url_text' ).val(this.value);
             $('#screen_url_search').click();
           });
 
@@ -36,6 +48,8 @@ HTMLWidgets.widget({
                //$('#' + el.id).width(data.from + 10);
                $('.container').width(data.from + 0);
                $('.container').css('maxWidth', (data.from + 0) + "px");
+               iframe.resize();
+               //$('#' + el.id).attr('src', iframeSrc);
              }
            });
            $('#iframe_height').ionRangeSlider({
@@ -44,6 +58,8 @@ HTMLWidgets.widget({
                //$('#' + el.id).width(data.from + 10);
                $('.container').height(data.from + 0);
                $('.container').css('maxHeight', (data.from + 0) + "px");
+               iframe.resize();
+               //$('#' + el.id).attr('src', iframeSrc);
              }
            });
 
@@ -68,11 +84,12 @@ HTMLWidgets.widget({
            });
 
           // Update iframe src according to text input
-          $('#screen_url_search').on('click', function(event) { // on click
-            $('#' + el.id).attr('src', $('#sescreen_url').val());
+          $('#screen_url_search').on('click', function(event) {
+            iframeSrc = $('#screen_url_text').val();
+            $('#' + el.id).attr('src', iframeSrc);
           });
           $('#screen_url_reset').on('click', function(event) {
-            $('#sescreen_url' ).val('');
+            $('#screen_url_text').val('');
             $('#' + el.id).attr('src', 'http://127.0.0.1');
           });
         }
@@ -81,15 +98,18 @@ HTMLWidgets.widget({
 
         // select shiny app url if exist
         if (x.url_app !== null) {
-          $('#' + el.id).attr('src', x.url_app);
+          iframeSrc = x.url_app;
+          $('#' + el.id).attr('src', iframeSrc);
           $('.container').width(x.width);
           $('.container').css('maxWidth', x.width + "px");
           $('.container').height(x.height);
           $('.container').css('maxHeight', x.height + "px");
         }
-
-        // iframe resizer init
-        $('#' + el.id).iFrameResize({minHeight: 600, scrolling: true, checkOrigin: false});
+        
+        $('#refresh').on('click', function() {
+          $('#' + el.id).attr('src', iframeSrc);
+        });
+        
       },
 
       resize: function(width, height) {
