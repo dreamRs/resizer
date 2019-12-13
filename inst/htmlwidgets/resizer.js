@@ -1,23 +1,14 @@
 HTMLWidgets.widget({
 
-  name: 'shinyscreen',
+  name: 'resizer',
 
   type: 'output',
 
   factory: function(el, width, height) {
 
-    // TODO: define shared variables for this instance
-
     return {
 
       renderValue: function(x) {
-
-
-        // config particles
-        //var configparticles = HTMLWidgets.getAttachmentUrl('particles', 'config-particles');
-        //particlesJS.load("particles", configparticles, function() {
-        //  console.log('callback - particles.js config loaded');
-        //});
 
         if (x.controls) {
           // Disable select if no urls or update choices
@@ -100,8 +91,6 @@ HTMLWidgets.widget({
       },
 
       resize: function(width, height) {
-
-        // TODO: code to re-render the widget with a new size
 
       }
 

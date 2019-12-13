@@ -7,13 +7,13 @@
 #' @importFrom utils browseURL
 #'
 #' @examples
-#' \dontrun{
-#'
+#' if (interactive()) {
+#' 
 #' screen_size()
-#'
+#' 
 #' }
 screen_size <- function() {
-  browseURL(url = system.file("www/screenSize.html", package = "shinyscreen"))
+  browseURL(url = system.file("www/screenSize.html", package = "resizer"))
 }
 
 

@@ -1,4 +1,4 @@
-Package: shinyscreen
+Package: resizer
 Title: Simulate Screen Resolution for Shiny Application
 Version: 0.0.1
 Authors@R: c(

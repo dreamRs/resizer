@@ -53,11 +53,11 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
   )
 
   widget <- createWidget(
-    name = if (controls) "shinyscreen" else "shinyscreenno",
+    name = ifelse(isTRUE(controls), "resizer", "resizer_raw"),
     x = x,
     width = NULL,
     height = NULL,
-    package = "shinyscreen",
+    package = "resizer",
     elementId = NULL,
     sizingPolicy = sizingPolicy(
       defaultWidth = "100%",
@@ -80,7 +80,7 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
 #' @importFrom shinyWidgets searchInput
 #' @importFrom shiny icon sliderInput actionLink fluidRow column selectInput
 #' @importFrom rmarkdown html_dependency_bootstrap html_dependency_jquery html_dependency_font_awesome
-shinyscreen_html <- function(id, style, class, ...) {
+resizer_html <- function(id, style, class, ...) {
   slider_width <- sliderInput(
     inputId = "iframe_width", label = "Width:",
     min = 100, max = 1600, value = 800, post = "px"
@@ -149,7 +149,7 @@ shinyscreen_html <- function(id, style, class, ...) {
   )
 }
 
-shinyscreenno_html <- function(id, style, class, ...) {
+resizer_raw_html <- function(id, style, class, ...) {
   attachDependencies(
     x = tags$div(
       class = "container",
