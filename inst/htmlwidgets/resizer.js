@@ -46,29 +46,31 @@ HTMLWidgets.widget({
           $("#iframe_width").ionRangeSlider({
             skin: "round",
             onChange: function(data) {
-              //$('#' + el.id).width(data.from + 10);
               $(".container").width(data.from + 0);
               $(".container").css("maxWidth", data.from + 0 + "px");
               iframe.resize();
-              //$('#' + el.id).attr('src', iframeSrc);
             },
             onFinish: function (data) {
+              var autoR = document.getElementById("autorefresh").checked;
              // fired on pointer release
-             $('#refresh').click();
+             if (autoR) {
+               $("#refresh").click();
+             }
             }
           });
           $("#iframe_height").ionRangeSlider({
             skin: "round",
             onChange: function(data) {
-              //$('#' + el.id).width(data.from + 10);
               $(".container").height(data.from + 0);
               $(".container").css("maxHeight", data.from + 0 + "px");
               iframe.resize();
-              //$('#' + el.id).attr('src', iframeSrc);
             },
             onFinish: function (data) {
+              var autoR = document.getElementById("autorefresh").checked;
              // fired on pointer release
-             $('#refresh').click();
+             if (autoR) {
+               $("#refresh").click();
+             }
             }
           });
 

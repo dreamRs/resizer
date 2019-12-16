@@ -100,9 +100,9 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
 }
 
 
-#' @importFrom htmltools tags attachDependencies
+#' @importFrom htmltools tags attachDependencies tagAppendAttributes
 #' @importFrom shinyWidgets searchInput
-#' @importFrom shiny icon sliderInput actionLink fluidRow column selectInput actionButton
+#' @importFrom shiny icon sliderInput actionLink fluidRow column selectInput actionButton checkboxInput
 #' @importFrom rmarkdown html_dependency_bootstrap html_dependency_jquery html_dependency_font_awesome
 resizer_html <- function(id, style, class, ...) {
   slider_width <- sliderInput(
@@ -152,11 +152,23 @@ resizer_html <- function(id, style, class, ...) {
           tags$span("Shortcuts:"),
           actionLink(inputId = "width800_height600", label = "800x600"),
           actionLink(inputId = "width1024_height768", label = "1024x768"),
-          actionButton(
-            inputId = "refresh", 
-            label = "refresh",
-            icon = icon("refresh"),
-            class = "btn-xs pull-right"
+          tags$div(
+            style = "display: inline-block",
+            class = "pull-right",
+            actionButton(
+              inputId = "refresh", 
+              label = "refresh",
+              icon = icon("refresh"),
+              class = "btn-xs"
+            ),
+            tagAppendAttributes(
+              checkboxInput(
+                inputId = "autorefresh",
+                label = "auto-refresh?",
+                value = TRUE
+              ),
+              style = "display: inline-block;"
+            )
           )
         ),
         tags$br(),
