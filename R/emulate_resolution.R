@@ -179,7 +179,7 @@ resizer_html <- function(id, style, class, ...) {
           tags$iframe(
             id = id, class = class,
             # width = 800, height = 600,
-            style = "border: 5px inset steelblue;",
+            style = "border: 3px solid #006cfa;",
             src = "http://127.0.0.1"
           )
         )
@@ -197,10 +197,10 @@ resizer_raw_html <- function(id, style, class, ...) {
   attachDependencies(
     x = tags$div(
       class = "container",
-      style = "max-width: 800px; margin: auto; padding: 0;",
+      style = "max-width: 800px; margin: auto; padding: 0; margin-top: 15px;",
       tags$iframe(
         id = id, class = class,
-        style = "border: 5px inset steelblue;",
+        style = "border: 3px solid #006cfa;",
         src = "http://127.0.0.1"
       )
     ),

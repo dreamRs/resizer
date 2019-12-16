@@ -13,6 +13,8 @@
 This is a POC to discuss with [@DivadNojnarg](https://github.com/DivadNojnarg), the goal is to see how we can merge this with [`shinyMobile::preview_mobile()`](https://rinterface.github.io/shinyMobile/reference/preview_mobile.html).
 
 
+Online demo : https://dreamrs.github.io/resizer/
+
 
 ## Installation
 

@@ -1,6 +1,6 @@
 Package: resizer
 Title: Simulate Screen Resolution for Shiny Application
-Version: 0.0.2.900
+Version: 0.0.2.910
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Fanny", "Meyer", role = "aut"),
@@ -16,6 +16,6 @@ Imports:
     htmlwidgets,
     htmltools,
     shiny,
-    shinyWidgets,
+    shinyWidgets (>= 0.4.7),
     rmarkdown
 RoxygenNote: 7.0.2

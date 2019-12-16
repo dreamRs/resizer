@@ -12,7 +12,9 @@ HTMLWidgets.widget({
 
         // select shiny app url if exist
         if (x.url_app !== null) {
-          $('#' + el.id).attr('src', x.url_app);
+          setTimeout(function() {
+            $('#' + el.id).attr('src', x.url_app);
+          }, 400);
           $('.container').width(x.width);
           $('.container').css('maxWidth', x.width + "px");
           $('.container').height(x.height);
