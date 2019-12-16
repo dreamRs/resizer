@@ -4,6 +4,7 @@ Version: 0.0.1.900
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Fanny", "Meyer", role = "aut"),
+  person("David", "Granjon", role = "aut"),
   person("David", "J. Bradshaw", role = c("cph"), comment = "iframe-resizer library"))
 Description: When developing applications, the display may be different depending on 
   the screen on which the application is displayed. This application allows you to simulate
