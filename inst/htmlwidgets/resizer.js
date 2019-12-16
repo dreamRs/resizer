@@ -110,7 +110,7 @@ HTMLWidgets.widget({
           iframeSrc = x.url_app;
           setTimeout(function() {
             $("#" + el.id).attr("src", iframeSrc);
-          }, 300);
+          }, 400);
           $(".container").width(x.width);
           $(".container").css("maxWidth", x.width + "px");
           $(".container").height(x.height);

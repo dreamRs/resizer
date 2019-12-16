@@ -101,7 +101,7 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
 }
 
 
-#' @importFrom htmltools tags attachDependencies tagAppendAttributes
+#' @importFrom htmltools tags attachDependencies tagAppendAttributes HTML
 #' @importFrom shinyWidgets searchInput
 #' @importFrom shiny icon sliderInput actionLink fluidRow column selectInput actionButton checkboxInput
 #' @importFrom rmarkdown html_dependency_bootstrap html_dependency_jquery html_dependency_font_awesome
@@ -165,7 +165,7 @@ resizer_html <- function(id, style, class, ...) {
             tagAppendAttributes(
               checkboxInput(
                 inputId = "autorefresh",
-                label = "auto-refresh?",
+                label = HTML("&nbsp;auto-refresh?"),
                 value = TRUE
               ),
               style = "display: inline-block;"
