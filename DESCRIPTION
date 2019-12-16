@@ -1,6 +1,6 @@
 Package: resizer
 Title: Simulate Screen Resolution for Shiny Application
-Version: 0.0.1.900
+Version: 0.0.2.900
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Fanny", "Meyer", role = "aut"),

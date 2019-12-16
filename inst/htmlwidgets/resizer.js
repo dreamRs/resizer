@@ -108,7 +108,9 @@ HTMLWidgets.widget({
         // select shiny app url if exist
         if (x.url_app !== null) {
           iframeSrc = x.url_app;
-          $("#" + el.id).attr("src", iframeSrc);
+          setTimeout(function() {
+            $("#" + el.id).attr("src", iframeSrc);
+          }, 300);
           $(".container").width(x.width);
           $(".container").css("maxWidth", x.width + "px");
           $(".container").height(x.height);

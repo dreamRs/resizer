@@ -61,6 +61,7 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
     }
     url_app <- paste0("http://", host, ":", port)
     on.exit({
+      Sys.sleep(0.5)
       runApp(appDir = appDir, port = port, host = host, launch.browser = FALSE)
     })
   } else {
