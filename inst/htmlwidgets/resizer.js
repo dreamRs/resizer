@@ -51,6 +51,10 @@ HTMLWidgets.widget({
               $(".container").css("maxWidth", data.from + 0 + "px");
               iframe.resize();
               //$('#' + el.id).attr('src', iframeSrc);
+            },
+            onFinish: function (data) {
+             // fired on pointer release
+             $('#refresh').click();
             }
           });
           $("#iframe_height").ionRangeSlider({
@@ -61,6 +65,10 @@ HTMLWidgets.widget({
               $(".container").css("maxHeight", data.from + 0 + "px");
               iframe.resize();
               //$('#' + el.id).attr('src', iframeSrc);
+            },
+            onFinish: function (data) {
+             // fired on pointer release
+             $('#refresh').click();
             }
           });
 
