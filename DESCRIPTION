@@ -18,4 +18,4 @@ Imports:
     shiny,
     shinyWidgets (>= 0.4.7),
     rmarkdown
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1

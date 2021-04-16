@@ -3,6 +3,7 @@
 export(emulate_resolution)
 export(screen_size)
 importFrom(htmltools,"htmlDependencies<-")
+importFrom(htmltools,HTML)
 importFrom(htmltools,attachDependencies)
 importFrom(htmltools,htmlDependencies)
 importFrom(htmltools,tagAppendAttributes)
