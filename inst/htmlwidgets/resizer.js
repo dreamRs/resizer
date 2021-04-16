@@ -1,3 +1,7 @@
+/*jshint
+  jquery:true
+*/
+/*global HTMLWidgets */
 HTMLWidgets.widget({
   name: "resizer",
 
@@ -24,9 +28,9 @@ HTMLWidgets.widget({
             $("#list_urls").attr("disabled", true);
           } else {
             iframeSrc = x.urls[Object.keys(x.urls)[0]];
-            $('#' + el.id).attr('src', iframeSrc);
+            $("#" + el.id).attr("src", iframeSrc);
             var $el = $("#list_urls");
-            $el.empty(); 
+            $el.empty();
             $.each(x.urls, function(key, value) {
               $el.append(
                 $("<option></option>")
@@ -50,12 +54,12 @@ HTMLWidgets.widget({
               $(".container").css("maxWidth", data.from + 0 + "px");
               iframe.resize();
             },
-            onFinish: function (data) {
+            onFinish: function(data) {
               var autoR = document.getElementById("autorefresh").checked;
-             // fired on pointer release
-             if (autoR) {
-               $("#refresh").click();
-             }
+              // fired on pointer release
+              if (autoR) {
+                $("#refresh").click();
+              }
             }
           });
           $("#iframe_height").ionRangeSlider({
@@ -65,33 +69,31 @@ HTMLWidgets.widget({
               $(".container").css("maxHeight", data.from + 0 + "px");
               iframe.resize();
             },
-            onFinish: function (data) {
+            onFinish: function(data) {
               var autoR = document.getElementById("autorefresh").checked;
-             // fired on pointer release
-             if (autoR) {
-               $("#refresh").click();
-             }
+              // fired on pointer release
+              if (autoR) {
+                $("#refresh").click();
+              }
             }
           });
 
           // Update slider with action-links
           var sliderwidth = $("#iframe_width").data("ionRangeSlider");
           var sliderheight = $("#iframe_height").data("ionRangeSlider");
-          $("#width800_height600").on("click", function() {
-            sliderwidth.update({ from: 800 });
-            $(".container").width(800);
-            $(".container").css("maxWidth", 800 + "px");
-            sliderheight.update({ from: 600 });
-            $(".container").height(600);
-            $(".container").css("maxHeight", 600 + "px");
-          });
-          $("#width1024_height768").on("click", function() {
-            sliderwidth.update({ from: 1024 });
-            $(".container").width(1024);
-            $(".container").css("maxWidth", 1024 + "px");
-            sliderheight.update({ from: 768 });
-            $(".container").height(768);
-            $(".container").css("maxHeight", 768 + "px");
+          $(".shortcut-resolution").on("click", function(e) {
+            var width = $(this).data("width");
+            var height = $(this).data("height");
+            sliderwidth.update({ from: width });
+            $(".container").width(width);
+            $(".container").css("maxWidth", width + "px");
+            sliderheight.update({ from: height });
+            $(".container").height(height);
+            $(".container").css("maxHeight", height + "px");
+            var autoR = document.getElementById("autorefresh").checked;
+            if (autoR) {
+              $("#refresh").click();
+            }
           });
 
           // Update iframe src according to text input

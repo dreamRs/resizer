@@ -43,8 +43,10 @@
 #'     shinyApp(ui, server)
 #'   )
 #' }
-emulate_resolution <- function(appDir = NULL, urls = NULL,
-                               width = 800, height = 600,
+emulate_resolution <- function(appDir = NULL, 
+                               urls = NULL,
+                               width = 800,
+                               height = 600,
                                controls = TRUE,
                                host = getOption("shiny.host", "127.0.0.1"),
                                port = getOption("shiny.port")) {
@@ -103,17 +105,9 @@ emulate_resolution <- function(appDir = NULL, urls = NULL,
 
 #' @importFrom htmltools tags attachDependencies tagAppendAttributes HTML
 #' @importFrom shinyWidgets searchInput
-#' @importFrom shiny icon sliderInput actionLink fluidRow column selectInput actionButton checkboxInput
+#' @importFrom shiny icon actionLink fluidRow column selectInput actionButton checkboxInput
 #' @importFrom rmarkdown html_dependency_bootstrap html_dependency_jquery html_dependency_font_awesome
 resizer_html <- function(id, style, class, ...) {
-  slider_width <- sliderInput(
-    inputId = "iframe_width", label = "Width:",
-    min = 100, max = 1600, value = 800, post = "px"
-  )
-  slider_height <- sliderInput(
-    inputId = "iframe_height", label = "Height:",
-    min = 100, max = 1200, value = 600, post = "px"
-  )
   text_url <- searchInput(
     inputId = "screen_url",
     label = "Enter an URL:",
@@ -143,16 +137,34 @@ resizer_html <- function(id, style, class, ...) {
           fluidRow(
             column(
               width = 6,
-              suppress_dependencies(slider_width)
+              slider_input(
+                inputId = "iframe_width",
+                label = "Width:",
+                min = 100, 
+                max = 1600, 
+                value = 800,
+                post = "px"
+              )
             ),
             column(
               width = 6,
-              suppress_dependencies(slider_height)
+              slider_input(
+                inputId = "iframe_height",
+                label = "Height:",
+                min = 100, 
+                max = 1200, 
+                value = 600, 
+                post = "px"
+              )
             )
           ),
           tags$span("Shortcuts:"),
-          actionLink(inputId = "width800_height600", label = "800x600"),
-          actionLink(inputId = "width1024_height768", label = "1024x768"),
+          # actionLink(inputId = "width800_height600", label = "800x600"),
+          # actionLink(inputId = "width1024_height768", label = "1024x768"),
+          shortcut_resolution(360, 640),
+          shortcut_resolution(800, 600),
+          shortcut_resolution(1024, 768),
+          shortcut_resolution(1920, 1080),
           tags$div(
             style = "display: inline-block",
             class = "pull-right",
@@ -192,6 +204,31 @@ resizer_html <- function(id, style, class, ...) {
     )
   )
 }
+
+#' @importFrom shiny sliderInput
+#' @importFrom htmltools tagAppendAttributes
+slider_input <- function(...) {
+  slider <- sliderInput(...)
+  slider <- suppress_dependencies(slider)
+  slider$children[[2]]$attribs[["data-skin"]] <- NULL
+  slider$children[[2]] <- tagAppendAttributes(
+    slider$children[[2]],
+    "data-skin" = "round"
+  )
+  slider
+}
+
+#' @importFrom htmltools tags
+shortcut_resolution <- function(width, height) {
+  tags$a(
+    class = "action-button shortcut-resolution",
+    href = "#",
+    paste(width, height, sep = "x"),
+    `data-width` = width,
+    `data-height` = height
+  )
+}
+
 
 resizer_raw_html <- function(id, style, class, ...) {
   attachDependencies(
